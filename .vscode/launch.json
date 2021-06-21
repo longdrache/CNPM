@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ShopApplication",
+            "request": "launch",
+            "mainClass": "com.hcmute.shop.ShopApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Launch ShoesApplication",
             "request": "launch",
             "mainClass": "com.hcmute.shop.shoes.ShoesApplication",

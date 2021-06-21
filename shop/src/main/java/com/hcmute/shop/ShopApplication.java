@@ -1,13 +1,13 @@
-package com.hcmute.shop.shoes;
+package com.hcmute.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShoesApplication {
+public class ShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ShoesApplication.class, args);
+		SpringApplication.run(ShopApplication.class, args);
 	}
 
 }
