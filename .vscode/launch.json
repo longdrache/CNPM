@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch ShoesApplication",
+            "request": "launch",
+            "mainClass": "com.hcmute.shop.shoes.ShoesApplication",
+            "projectName": "shoes"
+        },
+        {
+            "type": "pwa-chrome",
+            "name": "localhost:8443",
+            "request": "launch",
+            "url": "localhost:8443"
+        }
+    ]
+}
