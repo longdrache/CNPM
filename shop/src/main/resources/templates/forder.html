@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="style/order.css" rel="stylesheet">
+    <link href="style/forder.css" rel="stylesheet">
+    <title>Your order</title>
+</head>
+<body>
+<script th:unless="${bill}">
+            alert("We couldn't find your bill");
+            location.href="/";
+
+        </script>
+<div th:if="${bill}" id="orderform" class="modal">
+    <form class="modal-content animate" id="in">
+        <div class="imgcontainer">
+            <a href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"style="
+             top: 10%;
+             left: 3%;
+             position: fixed;
+             transform: scale(2.5);
+             "><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3.222 18.917c5.666-5.905-.629-10.828-5.011-7.706l1.789 1.789h-6v-6l1.832 1.832c7.846-6.07 16.212 4.479 7.39 10.085z"/></svg></a>
+        </div>
+        <header>
+            <div class="logologin"></div>
+            <div class="subject">YOUR ORDERS</div>
+        </header>
+
+<div  class="container ">
+    <ul class="list-group mb" id="co">
+        <li th:each="i :${bill.cartBuy.shoesBuys}"  class="list-group-item d-flex justify-content-between lh-condensed padding0">
+
+            <div class="row widthfull">
+                <div class="col-sm-5">
+
+
+                    <!--                                <img id="loader/id" style="display:block" src="image/nen.png" height="100px"/>-->
+                    <img  id ="image/id" th:alt="${i.shoesBuy.name}" th:src="'/'+${i.shoesBuy.imageList[0].link}" height="100px" width="100px"  />
+                </div>
+                <div  class="col-sm-6">
+
+
+                    <div>
+                        <span>Name: [[${i.shoesBuy.name}]]</span>
+                    </div>
+                    <span>Quantity: [[${i.quantity}]] </span>
+                    <span>Size: [[${i.size}]]</span>
+                    <p class="text-muted salex"><strong >Price: [[${#numbers.formatInteger(i.price_sell,3,'POINT')}]] ₫</strong></p>
+
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+
+            <span>Price (VND): </span>
+            <strong>[[${#numbers.formatInteger(bill.cartBuy.totalPrice,3,'POINT')}]] ₫</strong>
+
+        </li>
+
+
+        <li class="list-group-item d-flex justify-content-between">
+
+
+            <span>Ship (VND): </span>
+            <strong th:if="${bill.cartBuy.shipPrice!=0}">[[${#numbers.formatInteger(bill.cartBuy.shipPrice,3,'POINT')}]] ₫</strong>
+            <strong th:if="${bill.cartBuy.shipPrice==0}">Free</strong>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+
+            <span>Total (VND): </span>
+            <strong>[[${#numbers.formatInteger(bill.cartBuy.total,3,'POINT')}]] ₫</strong>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+
+            <span>Payment methods: </span>
+            <strong>[[${bill.payMethode}]]</strong>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+
+            <span>Status: </span>
+            <strong>[[${bill.status}]]</strong>
+
+        </li>
+
+    </ul>
+
+
+</div>
+    </form>
+</div>
+</body>
+</html>

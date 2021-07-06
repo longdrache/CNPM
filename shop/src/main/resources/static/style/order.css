@@ -1,0 +1,130 @@
+*{
+    box-sizing: border;
+    margin:0;
+    padding:0;
+}
+
+.themed-grid-col {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+  text-align: center;
+}
+
+.themed-container {
+  padding: .75rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(0, 123, 255, .15);
+  border: 1px solid rgba(0, 123, 255, .2);
+}
+.logologin{
+    background-position-x: center;
+    background-size: 62px;
+    height: 35px;
+    margin: 30px 21px;
+    max-width: 573px;
+    background-image: url(G8.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 43px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 380px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+       padding: 0 19px;
+    float: right;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+
+.lh-condensed {
+    line-height: 1.25;
+    
+    
+}
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform:scale(0)} 
+    to {transform: sale(1)}
+}
+.deta{
+    cursor: pointer;
+}
+svg:hover{
+    fill:darkgrey;
+}
+
+.subject{
+    color: #111;
+    font-family: TradeGothicforNike365-BdCn,Helvetica!important;
+    font-size: 26px;
+    line-height: 15px;
+    margin: 0 auto;
+    max-width: 35ch;
+    padding: 15px 0 26px;
+    text-align: center;
+    font-weight: 500;
+}
+span{
+    color: #111;
+    font-family: TradeGothicforNike365-BdCn,Helvetica!important;
+}
+
+span{
+    color: #111;
+    
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+}
+.salex{
+    color: #111;
+    
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+}
+.mb{
+width: 350px;
+}
+.height57{
+height:90px;
+}
+.abscenter{
+bottom: 0%;
+margin-top:10%;
+
+    left: 50%;}

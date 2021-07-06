@@ -1,0 +1,32 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.GregorianCalendar"%>
+ <%
+
+                GregorianCalendar currentDate = new GregorianCalendar();
+                int currentYear = currentDate.get(Calendar.YEAR);
+            %>
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">&copy; Copyright <%= currentYear%> Group08 </p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+ 
+    <script src="js/loadG.js"></script>
+    
+   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+   <script src="js/login.js"></script>
+    <script src="js/loaddatack.js"></script>
+    <script src="js/signup.js"></script>      
+    <script src="loaddata.js"></script>
+    <script src="loaddatasu.js"></script> 
+    <script src="js/function.js"></script>
+    <script src="js/editac.js"></script>
+    <script src="loadchange.js"></script>
+    <script src="js/orderform.js"></script>
+    
+
+</body>
+</html>

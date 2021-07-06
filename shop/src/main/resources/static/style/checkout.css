@@ -1,0 +1,160 @@
+.container {
+    max-width: 960px;
+}
+*{
+    box-sizing: border;
+    margin:0;
+    padding:0;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top-gray { border-top-color: #adb5bd; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-condensed {
+    line-height: 1.25;
+
+}
+#loginuser{
+    color: #111;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    cursor:pointer;
+}
+.twoicon{
+    display: none;
+}
+#iconlogin{
+    position: absolute;
+    margin-left: 10px;
+}
+.fixrow{
+    padding-block:0px;
+}
+.fixflex{
+    display: inline-flex;
+}
+.emaill{
+    text-indent: 5px;
+}
+.col{
+    padding-block: 10px;
+}
+#closesignup{
+    position: absolute;
+    bottom: 77px;
+    right: 8px;
+}
+#info{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 30px;
+    display: none;
+
+}
+.infologin{
+    padding:10px;
+
+
+}
+.checkemail{
+
+}
+.checkpass{
+
+}
+.checkemail #cemail{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display:none;
+}
+.checkpass #cpass{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.all .m{
+    width: 80%;
+    height:41px;
+    margin-left: 42px;
+    border: 1px solid #cccccc;
+
+}
+.checkcpassu #upass,#upass1{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checkemailu #uemail{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checkfnameu #ufname{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checklnameu #ulname{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checpassu #cupass,#cupass1,#cupass2{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checkemailu #getone{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    margin-right: 5px;
+    display: none;
+}
+.checkemailu{
+    display: flex;
+}
+.width128{
+width: 118%;
+}
+.widthfull{
+    width: -webkit-fill-available;
+
+    }
+.padding0{
+padding:0px;
+}
+.margin40{
+margin-top: 40px;
+}
+.footer0{
+    bottom: 0;
+    position: absolute;
+    width: -webkit-fill-available;
+}
+.overhidden{
+overflow:hidden;
+}
+.margin{
+margin-top: 10px;
+}

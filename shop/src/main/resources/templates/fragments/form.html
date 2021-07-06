@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:fragment="formedit" id="formedit" class="modal">
+        <form class="modal-content animate" id="in">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">CHANGE YOUR PASSWORD</div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="outedit()" class="close">
+                    <svg fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                            d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+
+
+
+            <div class="container all ">
+
+                <input id="minpee" class="m" onblur="checkValidateZpEE()" type="password" placeholder="Password"
+                    name="pswee" required>
+                <div class="checkpass">
+                    <span id="cpassee">Please enter a password.</span>
+                </div>
+                <input id="passedit" onblur="checktwopassE()" class="m" type="password" placeholder="Password"
+                    name="spsw" required>
+                <div class="checpasse">
+                    <span class="ed" id="cupasse">Password length must be at least 6 characters</span>
+                    <span class="ed" id="passe1">Please enter a password.</span>
+                    <span class="ed" id="passe2">Password length must not exceed 15 characters</span>
+
+                </div>
+                <input id="sucpasse" onblur="checkValidateZcpE()" class="m" type="password"
+                    placeholder="Confirm Password" name="cspsw" required>
+                <div class="checkcpasse">
+                    <span class="ed" id="cpasse">Please enter to confirm password.</span>
+                    <span class="ed" id="cpasse1">Passwords are not same</span>
+                </div>
+                <input sec:authorize="isAuthenticated()" type="hidden" th:value="${user.get().id}" id="idhidden">
+
+
+                <div class=" container divbuttionsignin">
+
+                    <button id="changeworde" class="buttonsignin">CHANGE PASSWORD</button>
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+    <div th:fragment="formsignup" id="formsignup" class="modalsignup">
+        <form class="modal-content animate" action="/login" id="sform" method="post" accept-charset="ISO-8859-15">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">BECOME A MEMBER</div>
+                <div class="call">Create your profile and get first access to the very best of our products, inspiration
+                    and community.</div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="outsign()" class="close" title="Close">
+                    <svg id="closesignup" fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                            d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg></span>
+            </div>
+
+            <div class="container all ">
+
+                <input id="sue" onblur="checkValidateZe1()" class="emaill m" type="email" placeholder="Email address"
+                    name="semail">
+
+                <div class="checkemailu">
+                    <span id="uemail">Please enter a valid email address.</span>
+                    <span id="getone">Sorry, You're already a Member. </span><a id="clicklogin1" class="joina">Sign
+                        in</a>
+                </div>
+
+                <input id="sufname" onblur="checkValidateZfn()" class="m" type="text" placeholder="Your Name"
+                    name="username">
+                <div class="checkfnameu">
+                    <span id="ufname">Please enter your  name</span>
+                </div>
+                <input id="supass" onblur="checktwopass()" class="m" type="password" placeholder="Password" name="spsw">
+                <div class="checpassu">
+                    <span id="cupass">Password length must be at least 6 characters</span>
+                    <span id="cupass1">Please enter a password.</span>
+                    <span id="cupass2">Password length must not exceed 15 characters</span>
+
+                </div>
+                <input id="sucpass" onblur="checkValidateZcp1()" class="m" type="password"
+                    placeholder="Confirm Password" name="cspsw">
+                <div class="checkcpassu">
+                    <span id="upass">Please enter to confirm password.</span>
+                    <span id="upass1">Passwords are not same</span>
+                </div>
+
+
+                <div class=" container divbuttionsignin">
+
+                    <button id="changewordsignup" class="buttonsignin">SIGN UP</button>
+                </div>
+
+
+            </div>
+            <div class="container signin ">
+                <div class="beforesignup"> Already a Member?</div>
+                <a id="clicklogin2" class="join">Sign in</a>
+            </div>
+        </form>
+    </div>
+    <div th:fragment="formlogin" id="formlogin" class="modal">
+        <form class="modal-content animate" id="in" accept-charset="ISO-8859-15">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">YOUR ACCOUNT</div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="out()" class="close">
+                    <svg  id="closelogin" fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                            d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="container all ">
+
+                <div class="infologin">
+                    <span id="info">Your email or password was entered incorrectly.</span>
+                    <span id="notactive">Your account is inactive. <strong id="verify" style="text-decoration:underline;cursor:pointer">Active now</strong></span>
+                </div>
+                <input id="mine" onblur="checkValidateZe()" autocomplete="false" class="emaill" type="email"
+                    placeholder="Email address" name="emaillo" required>
+                <div class="checkemail">
+                    <span id="cemail">Please enter a valid email address.</span>
+                </div>
+                <input id="minp" onblur="checkValidateZp()" type="password" placeholder="Password" name="pswlo"
+                    required>
+                <div class="checkpass">
+                    <span id="cpass">Please enter a password.</span>
+                </div>
+
+                <div class="rememberandforget">
+                    <div>
+                    <label class="checko">
+                        <input id="myCheck" type="checkbox" checked="checked" name="remember-me">Keep me sign in
+                        <span class="checkmark"></span>
+
+                    </label>
+                        </div>
+                    <div class="forget">
+                        <span id="forget">Forget Password?</span>
+                    </div>
+
+
+
+
+                </div>
+                <div class=" container divbuttionsignin">
+
+                    <button id="changewort" class="buttonsignin">SIGN IN</button>
+                    <div class="fb-login-button" data-width="313" data-size="large" data-button-type="login_with"
+                        data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
+                        onlogin="checkLoginState();">
+                    </div>
+                    <div style="margin-top:5px;" id="g-signin2"></div>
+
+
+                </div>
+
+            </div>
+
+            <div class="container signin ">
+                <div class="beforesignup">Not a member?</div>
+                <a href="#formsignup" id="clicksignup" class="join">Join Us</a>
+            </div>
+        </form>
+    </div>
+    <div th:fragment="forminfo" id="forminfo" class="modal">
+        <form class="modal-content animate" id="in">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">THANKS FOR SIGNUP </div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="outedit()" class="close">
+                    <svg fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                                d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <div class="center">
+                <h5>We have sent an account confirmation email, please check your email</h5>
+            </div>
+            <div class="center">
+                <button id="ok" class="buttonsignin">OK</button>
+
+            </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+    <div th:fragment="formforget"  id="formforget" class="modal">
+        <form class="modal-content animate" id="in">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">FORGET PASSWORD </div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="outforget()" class="close">
+                    <svg fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                                d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <input id="emailforget"  autocomplete="false" class="emaill" type="email"
+                   placeholder="Email address" name="emaillo" required>
+            <div class=" container divbuttionsignin">
+
+                <button id="changeforget" class="buttonsignin">SEND EMAIL</button>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+    <div th:fragment="formverify"  id="formverify" class="modal">
+        <form class="modal-content animate" id="in">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">VERIFY ACCOUNT</div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="outverify()" class="close">
+                    <svg fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                                d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <input id="emailverify"  autocomplete="false" class="emaill" type="email"
+                   placeholder="Email address" name="emaillo" required>
+            <div class=" container divbuttionsignin">
+
+                <button id="changeverify" class="buttonsignin">SEND EMAIL</button>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+    <div th:fragment="formorder" id="formorder" class="modal">
+        <form class="modal-content animate" id="in" action="/forder" method="post">
+            <header>
+                <div class="logologin"></div>
+                <div class="subject">FOLLOW THE ORDERS</div>
+            </header>
+            <div class="imgcontainer">
+                <span onclick="outfd()" class="close">
+                    <svg  id="closelogin" fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                        <path
+                                d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="container all ">
+
+
+                <input id="ordere"  autocomplete="false" class="emaill" type="email"
+                       placeholder="Email address" name="email" required>
+
+                <input id="orderc"  type="text" placeholder="Bill code" name="code" pattern="[1-9]{1}[0-9]{2,}" title="Please enter valid code"
+                       required>
+
+
+
+                <div class=" container divbuttionsignin">
+
+                    <button id="changewort" class="buttonsignin">FOLLOW</button>
+
+
+
+                </div>
+
+            </div>
+
+            <div class="container signin ">
+                <div class="beforesignup">Not a member?</div>
+                <a href="#formsignup" id="clicksignup" class="join">Join Us</a>
+            </div>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+</html>

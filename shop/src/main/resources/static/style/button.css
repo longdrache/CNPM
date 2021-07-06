@@ -1,0 +1,24 @@
+.fixbtn {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    border-radius: 30px;
+    padding:10px 20px  10px 20px;
+    text-align:center
+    
+}
+.fixbtn:hover {
+ 
+ 
+opacity:60%;
+    
+   
+}
+.fixbtn:focus{
+  outline:0;
+}
+.buttonsignin{
+    font-family:  TradeGothicforNike365-BdCn,Helvetica!important;
+    border: 1px solid #000;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,463 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AeND9EV1YOBlX--LQ2AUXNoBm8hEzk4rw5POGL7SvT4rSopwY_vKC0Hmo59N7pp03VspdqXnIueLSN9t"> </script>
+    <link rel="stylesheet" href="style/checkout.css"/>
+    <link rel="stylesheet" type="text/css" href="style/ckbutton.css"/>
+     <link rel="stylesheet" type="text/css" href="style/fix.css"/>
+
+
+
+
+</head>
+
+<body th:class="${#lists.isEmpty(cart.items)}?'bg-light overhidden':'bg-light'">
+<div>
+<h1 style="margin-top: 10%;text-align: center;" th:if="${#lists.isEmpty(cart.items)}"> Gio do trong</h1>
+</div>
+    <div th:unless="${#lists.isEmpty(cart.items)}" class="container">
+        <div class="container">
+            <div id="formlogin" class="modal">
+                <form class="modal-content animate" id="in">
+                    <header>
+                        <div class="logologin"></div>
+                        <div class="subject">YOUR ACCOUNT</div>
+                    </header>
+                    <div class="imgcontainer">
+                        <span onclick="out()" class="close">
+                            <svg fill="#111" height="20px" width="20px" viewBox="0 0 24 24">
+                            <path d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z">
+                            </path>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="container all ">
+
+                        <div class="infologin">
+                            <span id="info">Your email or password was entered incorrectly.</span>
+                        </div>
+                        <input id="mine" onblur="checkValidateZe()" autocomplete="false"  class="emaill" type="email" placeholder="Email address" name="emaillo" required>
+                        <div class="checkemail">
+                            <span id="cemail">Please enter a valid email address.</span>
+                        </div>
+                        <input id="minp"  onblur="checkValidateZp()"  type="password" placeholder="Password" name="pswlo" required>
+                        <div class="checkpass">
+                            <span id="cpass">Please enter a password.</span>
+                        </div>
+
+                        <div class="rememberandforget">
+                            <label class="checko">
+                                <input id="myCheck" type="checkbox"  checked="checked" name="remember" >Keep me sign in
+                                <span class="checkmark"></span>
+
+                            </label>
+
+
+                        </div>
+                        <div class=" container divbuttionsignin">
+
+                            <button id="changewort"  class="buttonsignin">SIGN IN</button>
+                            <div class="fb-login-button" data-width="313" data-size="large" data-button-type="login_with" data-layout="default"
+                                 data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();">
+
+                            </div>
+                            <div style="margin-top:5px;" id="g-signin2" ></div>
+                        </div>
+
+                    </div>
+
+                    <div class="container signin ">
+                        <div class="beforesignup">Not a member?</div>
+                        <a href="#formsignup" id="clicksignup" class="join">Join Us</a>
+                    </div>
+                </form>
+            </div>
+
+            <div id="formsignup" class="modalsignup">
+                <form id="formpay" class="modal-content animate" action="pay" method="post" accept-charset="ISO-8859-15">
+                    <header>
+                        <div class="logologin"></div>
+                        <div class="subject">BECOME A MEMBER</div>
+                        <div class="call">Create your  profile and get first access to the very best of our products, inspiration and community.</div>
+                    </header>
+                    <div class="imgcontainer">
+                        <span onclick="outsign()" class="close" title="Close">
+                            <svg id="closesignup" fill="#111" height="20px" width="20px" viewBox="0 0 24 24"><path d="M15.04 12L24 2.96 21.04 0 12 8.96 3.04 0 0 2.96 9.04 12 0 20.96 3.04 24 12 14.96 21.04 24 24 20.96z"></path></svg></span>
+                    </div>
+
+                    <div class="container all ">
+
+                        <input id="sue" onblur="checkValidateZe1()" class="emaill m" type="email" placeholder="Email address" name="semail" required>
+
+                        <div class="checkemailu">
+                            <span id="uemail">Please enter a valid email address.</span>
+                            <span id="getone">Sorry, You're already a Member.   </span><a  id="clicklogin1" class="joina">Sign in</a>
+                        </div>
+
+                        <input id="sufname" onblur="checkValidateZfn()" class="m" type="text" placeholder="First Name" name="fname" required>
+                        <div class="checkfnameu">
+                            <span id="ufname">Please enter your first name</span>
+                        </div>
+                        <input id="sulname" onblur="checkValidateZln()" class="m" type="text" placeholder="Last Name" name="lname" required>
+                        <div class="checklnameu">
+                            <span id="ulname">Please enter your last name</span>
+                        </div>
+                        <input id="supass" onblur="checktwopass()" class="m" type="password" placeholder="Password" name="spsw" required>
+                        <div class="checpassu">
+                            <span id="cupass">Password length must be at least 6 characters</span>
+                            <span id="cupass1">Please enter a password.</span>
+                            <span id="cupass2">Password length must not exceed 15 characters</span>
+
+                        </div>
+                        <input id="sucpass" onblur="checkValidateZcp1()" class="m" type="password" placeholder="Confirm Password" name="cspsw" required>
+                        <div class="checkcpassu">
+                            <span id="upass">Please enter to confirm password.</span>
+                            <span id="upass1">Passwords are not same</span>
+                        </div>
+                        <div class="rememberandforget">
+                            <label class="checko">
+                                <input type="checkbox" checked="checked" name="remember" >Sign up for emails to get updates from us on products, offers and your Member benefits
+                                <span class="checkmark newcheck"></span>
+                            </label>
+
+
+                        </div>
+                        <div class=" container divbuttionsignin">
+
+                            <button  id="changewordsignup"  class="buttonsignin" >SIGN UP</button>
+                        </div>
+
+                    </div>
+                    <div class="container signin " >
+                        <div class="beforesignup"> Already a Member?</div>
+                        <a  id="clicklogin2" class="join">Sign in</a>
+                    </div>
+                </form>
+            </div>
+            <div class="py-5 text-center">
+                <div class="d-block mx-auto mb-4" >
+                    <a href="/">
+                    <svg width="34" height="26" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" style="
+    transform: scale(1.5);
+">
+                    <path d="M0.40625 18.25V6.57812C0.40625 5.28906 0.933594 4 1.98828 2.71094C3.41797 1.04687 5.23438 0.214844 7.4375 0.214844V1.55078C5.75 1.55078 4.32031 2.23047 3.14844 3.58984C2.25781 4.64453 1.8125 5.82812 1.8125 7.14062V18.25C1.8125 20.3594 2.84375 21.9648 4.90625 23.0664C5.86719 23.582 6.71094 23.8398 7.4375 23.8398V25.1758C5.96094 25.1758 4.53125 24.6719 3.14844 23.6641C1.34375 22.3281 0.429688 20.5234 0.40625 18.25ZM9.01953 25.1758V23.8398C10.0742 23.8398 11.1758 23.3125 12.3242 22.2578C13.6133 21.0625 14.2695 19.75 14.293 18.3203V13.9258H9.01953V12.5898H15.6992V18.8125C15.6992 20.2422 14.9727 21.6602 13.5195 23.0664C12.043 24.4492 10.543 25.1523 9.01953 25.1758ZM9.01953 1.55078V0.214844C10.8477 0.191406 12.4648 0.953125 13.8711 2.5C15.0898 3.83594 15.6992 5.28906 15.6992 6.85938L14.3281 7.35156C14.3281 7.09375 14.3164 6.90625 14.293 6.78906C14.1289 4.67969 13.0859 3.13281 11.1641 2.14844C10.3672 1.75 9.65234 1.55078 9.01953 1.55078ZM25.2617 25C22.8242 25 20.9727 24.0391 19.707 22.1172C18.9102 20.9219 18.5117 19.6094 18.5117 18.1797C18.5117 15.7188 19.4492 13.9258 21.3242 12.8008C21.3945 12.7773 21.4414 12.7539 21.4648 12.7305C19.6602 11.3945 18.7227 9.63672 18.6523 7.45703C18.6523 5.41797 19.3789 3.69531 20.832 2.28906C22.0977 1.07031 23.6094 0.460938 25.3672 0.460938V1.79688C23.1875 1.89062 21.6406 2.86328 20.7266 4.71484C20.3047 5.55859 20.0938 6.44922 20.0938 7.38672C20.0938 9.19141 20.8086 10.5039 22.2383 11.3242C23.1055 11.8164 24.1367 12.0625 25.332 12.0625V13.3984C22.5898 13.3984 20.8789 14.3242 20.1992 16.1758C19.9883 16.7148 19.8828 17.3242 19.8828 18.0039C19.8828 20.5352 20.9141 22.2461 22.9766 23.1367C23.6797 23.4414 24.4414 23.6172 25.2617 23.6641V25ZM27.1953 25V23.6641C29.375 23.5469 30.9219 22.6797 31.8359 21.0625C32.3281 20.1953 32.5742 19.1758 32.5742 18.0039C32.5742 15.4492 31.25 13.9492 28.6016 13.5039C28.1328 13.4336 27.6406 13.3984 27.125 13.3984V12.0625C29.5625 12.0625 31.1797 11.1602 31.9766 9.35547C32.2344 8.74609 32.3633 8.08984 32.3633 7.38672C32.3633 5.60547 31.7422 4.17578 30.5 3.09766C29.5625 2.30078 28.4258 1.86719 27.0898 1.79688V0.460938C29.3633 0.460938 31.1562 1.38672 32.4688 3.23828C33.3594 4.52734 33.8047 5.93359 33.8047 7.45703C33.8047 9.63672 32.9375 11.3477 31.2031 12.5898C31.1328 12.6367 31.0625 12.6836 30.9922 12.7305C32.9375 13.9258 33.9219 15.7422 33.9453 18.1797C33.9453 20.2422 33.2188 21.9414 31.7656 23.2773C30.5234 24.4258 29 25 27.1953 25Z" fill="black"></path>
+                    </svg></a>
+                </div>
+
+                <h2>Checkout</h2>
+
+            </div>
+
+        </div>
+        <div th:unless="${#lists.isEmpty(cart.items)}" class="row width128">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3 ">
+                    <span class="text-muted"><h3>Your cart</h3></span>
+                    <span th:unless="${#lists.isEmpty(cart.items)}" class="badge badge-secondary badge-pill" th:text="${cart.getTotalQuanity()}"></span>
+                    <span th:if="${#lists.isEmpty(cart.items)}" class="badge badge-secondary badge-pill">0</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li  th:each="it : ${cart.items}" class="list-group-item d-flex justify-content-between lh-condensed padding0">
+
+                        <div class="row widthfull">
+                            <div class="col-sm-5">
+
+
+<!--                                <img id="loader/id" style="display:block" src="image/nen.png" height="100px"/>-->
+                                <img  id ="image/id" th:alt="${it.shoes.name}" th:src="'/'+${it.shoes.imageList[0].link}" height="110px" width="100px"  />
+                            </div>
+                            <div class="col-sm-6">
+
+
+                                <div>
+                                    <span>Name: [[${it.shoes.name}]]</span>
+                                </div>
+                                <span>Quantity: [[${it.quantity}]] </span>
+                                <span>Size: [[${it.size}]]</span>
+                                <p class="text-muted salex"><strong >Price: [[${#numbers.formatInteger(it.shoes.price,3,'POINT')}]]d</strong></p>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="list-group-item d-flex justify-content-between">
+
+                        <span>Price (VND)</span>
+                        <strong>[[${cart.getTotalPrice()}]]</strong>
+
+                    </li>
+
+
+                    <li class="list-group-item d-flex justify-content-between">
+
+
+                        <span>Ship (VND)</span>
+                        <strong>[[${cart.getPriceShip()}]]</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+
+                        <span>Total (VND)</span>
+                        <strong>[[${cart.getFinalPrice()}]]</strong>
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+
+                        <span>Total (USD)</span>
+                        <strong>[[${cart.ToUSDS()}]]</strong>
+
+                    </li>
+
+                </ul>
+
+
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Billing address</h4>
+
+                <form class="needs-validation"  id="pform" novalidate action="/pay" method="post"  enctype="multipart/form-data" accept-charset="UTF-8">
+
+
+
+        <input sec:authorize="isAuthenticated()" type="hidden" name="user" th:value="${user.get().id}">
+
+
+
+                    <div   sec:authorize="!isAuthenticated()" class="mb-3">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control" id="email" placeholder="Email" name="email" required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Recipient's name  is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="revname">Recipient's name</label>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control" id="revname" placeholder="Username" name="revname" required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Recipient's name  is required.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone">Telephone number </label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Telephone number" pattern="[0-9]{4}[0-9]{3}[0-9]{3}" required>
+                        <div class="invalid-feedback">
+                            Please enter your phone number or phone number valid
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md mb">
+                            <label for="country">Country</label>
+                            <select class="custom-select d-block w-100" name="country" id="country" required>
+                                <option value="">Choose...</option>
+                                <option>Viet Nam</option>
+                                <option>China</option>
+                                <option>Japan</option>
+                                <option>Mexico</option>
+                                <option>Thailand</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row margin">
+                        <div class="col-md mb">
+                            <label for="payMethode">Pay Method</label>
+                            <select onchange="onpay(this.value)" class="custom-select d-block w-100" name="payMethode" id="payMethode" required>
+                                <option value="">Choose...</option>
+                                <option value="CASH">Cash</option>
+                                <option value="PAYPAL">Paypal</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid pay method.
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="mb-4">
+                    <h3>Note:</h3>
+
+
+                    <label class="wayship" >Checkout by Paypal muss be converted to USD</label>
+
+
+
+
+
+
+                    <hr class="mb-4">
+
+
+                    <button style="display:none" sec:authorize="!isAuthenticated()" id="guestlogin" class="fixbtn btn-lg btn-block" type="submit"> Guest checkout</button>
+                    <button style="display:none" sec:authorize="isAuthenticated()"  id="clonelogin" class="fixbtn btn-lg btn-block" type="submit"> Member checkout</button>
+                    <button style="display:none"  sec:authorize="!isAuthenticated()" id="login" class="fixbtn btn-lg btn-block"> Member checkout</button>
+
+                    <button style="display:none" id="mcheckout"  sec:authorize="isAuthenticated()" class="fixbtn btn-lg btn-block" type="submit"> Member checkout</button>
+
+
+                    <div style="display:none" id="paypal-button-container"></div>
+
+                    <script>
+  paypal.Buttons({
+
+    createOrder: function(data, actions) {
+
+      // This function sets up the details of the transaction, including the amount and line item details.
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '[[${cart.ToUSDD()}]]'
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      // This function captures the funds from the transaction.
+
+      return actions.order.capture().then(function(details) {
+        // This function shows a transaction success message to your buyer.
+        alert('Transaction completed by ' + details.payer.name.given_name);
+         $("#pform").submit();
+
+
+
+      });
+    },
+
+      onError: function (err) {
+    // For example, redirect to a specific error page
+    window.location.href = "/your-error-page-here";
+  }
+  }).render('#paypal-button-container');
+
+</script>
+                    <script  sec:authorize="!isAuthenticated()">
+                    function onpay(a){
+                        if(a=="CASH"){
+                          $("#paypal-button-container").css("display","none");
+                        $("#guestlogin").css("display","block")
+
+
+                        }
+                        if(a=="PAYPAL"){
+                        if(document.getElementsByClassName('needs-validation').pform.checkValidity()==false){
+                         $("#paypal-button-container").css("display","none");
+                         $("#payMethode").val("");
+                         $("#formpay").submit();
+                        }
+                        else{
+                         $("#guestlogin").css("display","none");
+                         $("#paypal-button-container").css("display","block");
+}
+                        }
+                        }
+                        $("#formpay").submit(function(){
+                         if(document.getElementsByClassName('needs-validation').pform.checkValidity()==true){
+                         return true;}
+                         alert("Please complete, or enter a valid phone number");
+                         return false;});
+
+                    </script>
+                    <script  sec:authorize="isAuthenticated()">
+                    function onpay(a){
+                        if(a=="CASH"){
+                        $("#mcheckout").css("display","block");
+                         $("#paypal-button-container").css("display","none");
+
+
+                        }
+                        if(a=="PAYPAL"){
+                         if(document.getElementsByClassName('needs-validation').pform.checkValidity()==false){
+                         $("#paypal-button-container").css("display","none");
+                         $("#payMethode").val("");
+                         alert("Please complete, or enter a valid phone number");
+
+                        }
+                        else{
+                        $("#mcheckout").css("display","none");
+                         $("#paypal-button-container").css("display","block")
+}
+                        }
+                        }
+                         $("#pform").submit(function(){
+                         if(document.getElementsByClassName('needs-validation').pform.checkValidity()==true){
+                         return true;}
+                         alert("Please complete, or enter a valid phone number");
+                         return false;
+                         });
+                    </script>
+
+                </form>
+
+
+
+            </div>
+        </div>
+
+
+           <a href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"style="
+             top: 10%;
+             left: 3%;
+             position: fixed;
+             transform: scale(2.5);
+             "><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3.222 18.917c5.666-5.905-.629-10.828-5.011-7.706l1.789 1.789h-6v-6l1.832 1.832c7.846-6.07 16.212 4.479 7.39 10.085z"/></svg></a>
+    </div>
+    <footer th:fragment="footer"  th:class="${#lists.isEmpty(cart.items)}?'py-5 footer bg-dark footer0': 'py-5 footer bg-dark'">
+        <div class="container">
+            <p class="m-0 text-center text-white">&copy; Copyright [[${date}]]  by Company G8 </p>
+        </div>
+        <!-- /.container -->
+
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/formd.js"></script>
+
+ 
+    
+</body>
+
+</html>

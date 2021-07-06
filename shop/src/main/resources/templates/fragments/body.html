@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+<head></head>
+<body>
+<div th:fragment="body" class="container-fluid">
+    <div class="container">
+        <div th:replace="fragments/form ::formlogin"></div>
+        <div th:replace="fragments/form ::formsignup"></div>
+        <div th:replace="fragments/form ::formedit"></div>
+        <div th:replace="fragments/form ::forminfo"></div>
+        <div th:replace="fragments/form :: formforget"></div>
+        <div th:replace="fragments/form :: formverify"></div>
+        <div th:replace="fragments/form :: formorder"></div>
+
+
+
+
+
+
+
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div th:each="shoes:${list_shoes}" class="col">
+                <div class="card shadow-sm">
+
+                   <a th:href="@{'info/'+${shoes.id}}"><img  th:id ="image" th:alt="${shoes.name}" th:src="@{${shoes.imageList[0].link}}" height="400px" width="350px"/></a>
+
+
+
+                    <div class="card-body">
+                        <p class="card-text" th:text="${shoes.name}"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p th:text="${shoes.mark}"></p>
+                            <form th:action="@{'info/'+${shoes.id}}" method="get">
+                                <input type="submit" value="See detail" class="fixbtn">
+
+                            </form>
+                        </div>
+
+                        <p><strong th:text="${#numbers.formatInteger(shoes.price,3,'POINT')}+' ₫'"></strong></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

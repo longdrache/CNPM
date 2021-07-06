@@ -1,0 +1,25 @@
+.fixbtn {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    border-radius: 30px;
+    padding:10px 20px  10px 20px;
+    text-align:center
+    
+}
+.fixbtn:hover {
+ 
+ 
+opacity:60%;
+    
+   
+}
+.fixbtn:focus{
+  outline:0;
+}
+.kg{
+    margin-bottom: 35px
+}
+input{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}

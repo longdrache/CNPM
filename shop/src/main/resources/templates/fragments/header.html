@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:fragment="header-css(name,css)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <link rel="stylesheet" th:href="@{'style/'+${css}+'.css'}">
+    <meta name="google-signin-client_id" th:content=#{facebook.id}>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/button.css">
+    <link rel="icon" href="image/G8.png">
+    <title th:text=${name}></title>
+
+</head>
+
+<body>
+    <div th:fragment="header">
+
+
+        <div class="container-fluid  sign">
+            <div class="row fixrow">
+                <div class="col-sm-1"><a href="/"><svg height="24px" width="24px" fill="#111" viewBox="0 0 26 32">
+                            <path
+                                d="M14.4 5.52v-.08q0-.56.36-1t.92-.44 1 .36.48.96-.36 1-.96.4l-.24.08.08.12-.08.44-.16 1.28q.08.08.08.16l-.16.8q-.08.16-.16.24l-.08.32q-.16.64-.28 1.04t-.2.64V12q-.08.4-.12.64t-.28.8q-.16.32 0 1.04l.08.08q0 .24.2.56t.2.56q.08 1.6-.24 2.72l.16.48q.96.48.56 1.04l.4.16q.96.48 1.36.84t.8.76q.32.08.48.24l.24.08q1.68 1.12 3.36 2.72l.32.24v.08l-.08.16.24.16h.08q.24.16.32.16h.08q.08 0 .16-.08l.16-.08q.16-.16.32-.24h.32q.08 0 0 .08l-.32.16-.4.48h.56l.56.08q.24-.08.4-.16l.4-.24q.24-.08.48.16h.08q.08.08-.08.24l-.96.88q-.4.32-.72.4l-1.04.72q-.08.08-.16 0l-.24-.32-.16-.32-.2-.28-.24-.32-.2-.24-.16-.2-.32-.24q-.16 0-.32-.08l-1.04-.8q-.24 0-.56-.24-1.2-1.04-1.6-1.28l-.48-.32-.96-.16q-.48-.08-1.28-.48l-.64-.32q-.64-.32-.88-.32l-.32-.16q-.32-.08-.48-.16l-.16-.16q-.16 0-.32.08l-1.6.8-2 .88q-.8.64-1.52 1.04l-.88.4-1.36.96q-.16.16-.32 0l-.16.16q-.24.08-.32.08l-.32.16v.16h-.16l-.16.24q-.16.32-.32.36t-.2.12-.08.12l-.16.16-.24.16-.36-.04-.48.08-.32.08q-.4.08-.64-.12t-.4-.6q-.16-.24.16-.4l.08-.08q.08-.08.24-.08h.48L1.6 26l.32-.08q0-.16.08-.24.08-.08.24-.08v-.08q-.08-.16-.08-.32-.08-.16-.04-.24t.08-.08h.04l.08.24q.08.4.24.24l.08-.16q.08-.16.24-.16l.16.16.16-.16-.08-.08q0-.08.08-.08l.32-.32q.4-.48.96-.88 1.12-.88 2.4-1.36.4-.4.88-.4.32-.56.96-1.2.56-.4.8-.56.16-.32.4-.32H10l.16-.16q.16-.08.24-.16v-.4q0-.4.08-.64t.4-.24l.32-.32q-.16-.32-.16-.72h-.08q-.16-.24-.16-.48-.24-.4-.32-.64h-.24q-.08.24-.4.32l-.08.16q-.32.56-.56.84t-.88.68q-.4.4-.56.88-.08.24 0 .48l-.08.16h.08q0 .16.08.16h.08q.16.08.16.2t-.24.08-.36-.16-.2-.12l-.24.24q-.16.24-.32.2t-.08-.12l.08-.08q.08-.16 0-.16l-.64.16q-.08.08-.2 0t.04-.16l.4-.16q0-.08-.08-.08-.32.16-.64.08l-.4-.08-.08-.08q0-.08.08-.08.32.08.8-.08l.56-.24.64-.72.08-.16q.32-.64.68-1.16t.76-.84l.08-.32q.16-.32.32-.56t.4-.64l.24-.32q.32-.48.72-.48l.24-.24q.08-.08.08-.24l.16-.16-.08-.08q-.48-.4-.48-.72-.08-.56.36-.96t.88-.36.68.28l.16.16q.08 0 .08.08l.32.16v.24q.16.16.16.24.16-.24.48-.56l.4-1.28q0-.32.16-.64l.16-.24v-.16l.24-.96h.16l.24-.96q.08-.24 0-.56l-.32-.8z">
+                            </path>
+                        </svg></a>
+                </div>
+                <div class="col-sm-8"></div>
+                <div  class="col-sm-3 threehjs">
+
+                    <!--                    <div style="display:none" id="emailhidden">-->
+                    <!--                      -->
+                    <!--                    </div>-->
+                    <!--                  -->
+                    <div  sec:authorize="!isAuthenticated()">
+                    <a id="help" href="mailto:inhlongnguyen@gmail.com?subject=Help&body=" target="_blank">Help |</a>
+                        <a id="forder" target="_blank"> Follow the order |</a>
+                    <a id="joinus" target="_blank"> Join us |</a>
+                    <span id="login" target="_blank"> Sign in</span>
+                    </div>
+
+
+
+                                        <div sec:authorize="isAuthenticated()" class="dropdown">
+
+                                            <div class="twoicon dropbtn">
+
+                                                <span sec:authentication="name" id="loginuser"></span>
+
+                                                <svg id="iconlogin" aria-hidden="true" data-var="glyph" fill="#111" height="30px"
+                                                    width="30px" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M16.44 11A5.94 5.94 0 0 0 18 7 6 6 0 0 0 6 7a5.94 5.94 0 0 0 1.56 4A5 5 0 0 0 3 16v5a1 1 0 0 0 2 0v-5a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v5a1 1 0 0 0 2 0v-5a5 5 0 0 0-4.56-5zM8 7a4 4 0 1 1 4 4 4 4 0 0 1-4-4z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <div class="dropdown-content">
+                                                <a id="oder" href="/order">Orders</a>
+                                                <a id="help" href="mailto:inhlongnguyen@gmail.com?subject=Help&body=" target="_blank">Help
+                                                </a>
+                                                <a id="editac">Edit Password</a>
+                                                <a href="/logout">Log out</a>
+                                            </div>
+                                        </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="container logoshop">
+            <nav class="navbar navbar-expand-md navbar-light ">
+                <div class="container logo">
+                    <a class="navbar-brand" href="/"><svg width="34" height="26" viewBox="0 0 34 26" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.40625 18.25V6.57812C0.40625 5.28906 0.933594 4 1.98828 2.71094C3.41797 1.04687 5.23438 0.214844 7.4375 0.214844V1.55078C5.75 1.55078 4.32031 2.23047 3.14844 3.58984C2.25781 4.64453 1.8125 5.82812 1.8125 7.14062V18.25C1.8125 20.3594 2.84375 21.9648 4.90625 23.0664C5.86719 23.582 6.71094 23.8398 7.4375 23.8398V25.1758C5.96094 25.1758 4.53125 24.6719 3.14844 23.6641C1.34375 22.3281 0.429688 20.5234 0.40625 18.25ZM9.01953 25.1758V23.8398C10.0742 23.8398 11.1758 23.3125 12.3242 22.2578C13.6133 21.0625 14.2695 19.75 14.293 18.3203V13.9258H9.01953V12.5898H15.6992V18.8125C15.6992 20.2422 14.9727 21.6602 13.5195 23.0664C12.043 24.4492 10.543 25.1523 9.01953 25.1758ZM9.01953 1.55078V0.214844C10.8477 0.191406 12.4648 0.953125 13.8711 2.5C15.0898 3.83594 15.6992 5.28906 15.6992 6.85938L14.3281 7.35156C14.3281 7.09375 14.3164 6.90625 14.293 6.78906C14.1289 4.67969 13.0859 3.13281 11.1641 2.14844C10.3672 1.75 9.65234 1.55078 9.01953 1.55078ZM25.2617 25C22.8242 25 20.9727 24.0391 19.707 22.1172C18.9102 20.9219 18.5117 19.6094 18.5117 18.1797C18.5117 15.7188 19.4492 13.9258 21.3242 12.8008C21.3945 12.7773 21.4414 12.7539 21.4648 12.7305C19.6602 11.3945 18.7227 9.63672 18.6523 7.45703C18.6523 5.41797 19.3789 3.69531 20.832 2.28906C22.0977 1.07031 23.6094 0.460938 25.3672 0.460938V1.79688C23.1875 1.89062 21.6406 2.86328 20.7266 4.71484C20.3047 5.55859 20.0938 6.44922 20.0938 7.38672C20.0938 9.19141 20.8086 10.5039 22.2383 11.3242C23.1055 11.8164 24.1367 12.0625 25.332 12.0625V13.3984C22.5898 13.3984 20.8789 14.3242 20.1992 16.1758C19.9883 16.7148 19.8828 17.3242 19.8828 18.0039C19.8828 20.5352 20.9141 22.2461 22.9766 23.1367C23.6797 23.4414 24.4414 23.6172 25.2617 23.6641V25ZM27.1953 25V23.6641C29.375 23.5469 30.9219 22.6797 31.8359 21.0625C32.3281 20.1953 32.5742 19.1758 32.5742 18.0039C32.5742 15.4492 31.25 13.9492 28.6016 13.5039C28.1328 13.4336 27.6406 13.3984 27.125 13.3984V12.0625C29.5625 12.0625 31.1797 11.1602 31.9766 9.35547C32.2344 8.74609 32.3633 8.08984 32.3633 7.38672C32.3633 5.60547 31.7422 4.17578 30.5 3.09766C29.5625 2.30078 28.4258 1.86719 27.0898 1.79688V0.460938C29.3633 0.460938 31.1562 1.38672 32.4688 3.23828C33.3594 4.52734 33.8047 5.93359 33.8047 7.45703C33.8047 9.63672 32.9375 11.3477 31.2031 12.5898C31.1328 12.6367 31.0625 12.6836 30.9922 12.7305C32.9375 13.9258 33.9219 15.7422 33.9453 18.1797C33.9453 20.2422 33.2188 21.9414 31.7656 23.2773C30.5234 24.4258 29 25 27.1953 25Z"
+                                fill="black" />
+                        </svg>
+
+                    </a>
+<div class="title__boy__girl">
+   <a href="/?search=men" class="title2" id="boy">Men</a>
+    <a href="/?search=women" class="title2" id="girl">Women</a>
+</div>
+
+
+                    <form class="inputsearch" action ="/" autocomplete="off">
+                        <div class="container-fluid">
+                            <svg class="pre-search-input-icon" fill="#111" height="30px" width="30px" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z">
+
+                                </path>
+                            </svg>
+                            <input id="search" autocomplete="off" type="search" name="search" placeholder="Search">
+
+                        </div>
+                    </form>
+
+                </div>
+
+
+                <div class="cart">
+                    <a href="cart" title="Cart Items:">
+
+                        <svg class="cartimage" width="36px" height="36px" fill="#111" viewBox="0 0 24 24">
+                            <path
+                                d="M16 7a1 1 0 0 1-1-1V3H9v3a1 1 0 0 1-2 0V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1z">
+                            </path>
+                            <path
+                                d="M20 5H4a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a2 2 0 0 0-2-2zm0 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7h16z">
+                            </path>
+                        </svg>
+
+                        <span class="cartnumber" th:if="${cart.getTotalQuanity()<9&&cart.getTotalQuanity()!=0}" th:text="${cart.getTotalQuanity()}"></span>
+                        <span class="cartnumber" th:if="${cart.getTotalQuanity()==0}" ></span>
+
+
+
+                        <span class="cartnumberlarge" th:if="${cart.getTotalQuanity()>9}" id="cartnumberlarg">9+</span>
+
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid slideshow-container">
+
+            <div class="mySlides">
+                <span class="banner long">Due to unavoidable circumstances, some orders may be delayed. We apologize for
+                    any inconvenience.</span>
+
+            </div>
+
+            <div class="mySlides">
+                <span class="banner">Free shipping for all bills greater than 5.000.000 ₫ </span>
+                <!--                <p>Get Free Standard Delivery On All Orders<p>-->
+
+            </div>
+
+            <div class="mySlides">
+                <span class="banner">Wear a mask at all times in public to avoid COVID-19.</span>
+
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)"><svg aria-hidden="true" fill="#111" height="15px" width="15px"
+                    viewBox="0 0 185.4 300">
+                    <path
+                        d="M160.4 300c-6.4 0-12.7-2.5-17.7-7.3L0 150 142.7 7.3c9.8-9.8 25.6-9.8 35.4 0 9.8 9.8 9.8 25.6 0 35.4L70.7 150 178 257.3c9.8 9.8 9.8 25.6 0 35.4-4.9 4.8-11.3 7.3-17.6 7.3z">
+                    </path>
+                </svg></a>
+            <a class="next" onclick="plusSlides(1)"><svg aria-hidden="true" fill="#111" height="15px" width="15px"
+                    viewBox="0 0 185.4 300">
+                    <path
+                        d="M7.3 292.7c-9.8-9.8-9.8-25.6 0-35.4L114.6 150 7.3 42.7c-9.8-9.8-9.8-25.6 0-35.4s25.6-9.8 35.4 0L185.4 150 42.7 292.7c-4.9 4.8-11.3 7.3-17.7 7.3-6.4 0-12.7-2.5-17.7-7.3z">
+                    </path>
+                </svg></a>
+
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].className = slides[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                slides[slideIndex - 1].className += " active";
+            }
+
+            function showall() {
+                setTimeout(function() {
+                    plusSlides(1);
+                }, 6000);
+                setTimeout(function() {
+                    plusSlides(1);
+                }, 12000);
+                setTimeout(function() {
+                    plusSlides(1);
+                }, 18000);
+            }
+            showall();
+            setInterval(showall, 24000);
+        </script>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,459 @@
+.newcheck{
+    top:10px;
+}
+
+.pre-search-input-icon{
+    position: absolute;
+    margin-left: 10px;
+}
+#search{
+    border-radius: 20px;
+    padding-block: 9px;
+    border:solid 1px white;
+    background-color:#f5f5f5;
+    font-family: HelveticaNeue,Helvetica!important;
+    padding-left:30px;
+    text-indent:40px;
+
+    transition: all 0.5s;
+
+}
+#search::placeholder{
+
+    text-indent:20px;
+    font-size:16px;
+
+
+
+
+}
+#search:focus{
+    outline:0;
+    padding-left:100px;
+    text-indent:10px;
+
+}
+
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+#loginuser{
+    color: #111;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    cursor:pointer;
+}
+.twoicon{
+display:block;
+}
+#iconlogin{
+    position: absolute;
+    margin-left: 10px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+.row{
+    padding-block:10px;
+}
+hr{
+    border-width: 0px 0px 1px;
+    border-top-style: initial;
+    border-right-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-image: initial;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(229, 229, 229);
+    margin-block: 0px;
+    margin: 12px;
+}
+.est{
+    font-size: 16px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.sub{
+    font-size:16px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+select{
+
+    min-height: inherit;
+    font-size: 14px;
+    color: rgb(117, 117, 117);
+    background: none;
+    border: 0px;
+
+
+}
+
+.sign{
+    background-color: rgb(247,247,247);
+    padding: 5px;
+
+}
+.logoshop{
+    background-color: #fff;
+}
+.demo-2{
+    margin-left:100px;
+}
+.cartnumber{
+    position:absolute;
+    right: 30px;
+    top: 30px;
+    color:black;
+}
+.cartnumberlarge{
+    position:absolute;
+    right: 25px;
+    top: 30px;
+    color:black;
+}
+.jumbotron{
+    text-align: center;
+}
+a{
+    color: #111;
+    text-decoration: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+}
+a:hover{
+    color:rgb(180,180,180);
+    text-decoration: none;
+}
+.cartimage{
+    display: block;
+
+}
+
+
+svg:hover{
+    fill:darkgray;
+}
+/* Position the "next button" to the right */
+
+img, svg {
+    vertical-align: unset;
+}
+
+
+.inputsearch{
+    border-radius:100px;
+    padding:5px;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 0px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+/* Set a style for all buttons */
+button {
+    font-family: TradeGothicforNike365-BdCn,Helvetica!important;
+    background-color: #000;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+
+
+.pre-search-input-icon{
+    position: absolute;
+    margin-left: 10px;
+}
+#search{
+    border-radius: 20px;
+    padding-block: 9px;
+    border:solid 1px white;
+    background-color:#f5f5f5;
+    font-family: HelveticaNeue,Helvetica!important;
+    padding-left:30px;
+    text-indent:40px;
+
+    transition: all 0.5s;
+
+}
+#search::placeholder{
+
+    text-indent:20px;
+    font-size:16px;
+
+
+
+
+}
+#search:focus{
+    outline:0;
+    padding-left:100px;
+    text-indent:10px;
+
+}
+#login{
+    color: #111;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    cursor:pointer;
+}
+#login:hover{
+    color:rgb(180,180,180);
+}
+
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+#loginuser{
+    color: #111;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    cursor:pointer;
+}
+
+#iconlogin{
+    position: absolute;
+    margin-left: 10px;
+}
+.fixrow{
+    padding-block:0px;
+}
+.fixflex{
+    display: inline-flex;
+}
+.emaill{
+    text-indent: 5px;
+}
+.col{
+    padding-block: 10px;
+}
+#closesignup{
+    position: absolute;
+    bottom: 77px;
+    right: 8px;
+}
+#info{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 30px;
+       display: none;
+    
+}
+.infologin{
+    padding:10px;
+ 
+
+}
+.checkemail{
+    
+}
+.checkpass{
+    
+}
+.checkemail #cemail{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display:none;
+}
+.checkpass #cpass{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.all .m{
+    width: 80%;
+    height:41px;
+    margin-left: 42px;
+    border: 1px solid #cccccc;
+        
+}
+.checkcpassu #upass,#upass1{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checkemailu #uemail{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checkfnameu #ufname{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checklnameu #ulname{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checpassu #cupass,#cupass1,#cupass2{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;
+}
+.checkemailu #getone{
+    font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    margin-right: 5px;
+     display: none;
+}
+.checkemailu{
+    display: flex;
+}
+.dropbtn {
+
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+ 
+  
+}
+
+
+.dropdown-content {
+  
+  position: absolute;
+    padding: 20px 18px;
+   
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+   transition:all 0.3s ease-in-out 0.3s;
+  transform:translateY(-200px);
+
+}
+
+.dropdown-content a,#editac,#oder{
+  color:#757575;
+  text-decoration: none;
+  display: block;
+  paddding: 0 0 2px 2px;
+   font-size:16px;
+   font-family: Helvetica!important;
+}
+
+.dropdown-content a:hover, #editac:hover,#oder:hover {color:black;cursor:pointer
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+ 
+  transform:translateY(10px);
+}
+
+#joinus{
+     color: #111;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    cursor:pointer;
+}
+#joinus:hover{
+    color:rgb(180,180,180);
+}
+#formedit{
+    
+}
+.ed{
+     font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    margin-right: 5px;
+     display: none;
+}
+#cpassee{
+      font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    margin-right: 5px;
+     display: none;
+}
+
+#oder{
+    
+}
+.footer{
+width: -webkit-fill-available;
+bottom:0%;
+}
+.center{
+text-align:center;
+padding:20px;
+}
+
+.threehjs{
+padding:0}
+body{
+    overflow-x: hidden;
+}
+#notactive{
+font-size: 12px;
+    font-family: Helvetica!important;
+    color: red;
+    margin-left: 42px;
+    display: none;}
+
+     .all #ordere{
+        width: 80%;
+            height: 41px;
+            margin-left: 42px;
+            border: 1px solid #cccccc;
+            }
+
+          .all  #orderc{
+            width: 80%;
+                height: 41px;
+                margin-left: 42px;
+                border: 1px solid #cccccc;
+                }

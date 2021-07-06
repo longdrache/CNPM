@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: header-css('Trang chủ',style)">
+
+</head>
+<body>
+
+<div th:replace="fragments/header ::header"></div>
+<div class="center" th:if="${search!=''}">
+    <h3 th:if="${search!=''}">Từ khoá</h3>
+    <p th:text="${search}"></p>
+
+</div>
+
+<div th:replace="fragments/body ::body"></div>
+<footer th:replace="fragments/footer :: footer"></footer>
+<script src="js/login.js"></script>
+<script src="js/signup.js"></script>
+<script src="js/loaddata.js"></script>
+<script src="js/loaddatasu.js"></script>
+<script src="js/function.js"></script>
+<script src="js/editac.js"></script>
+<script src="js/loadchange.js"></script>
+<script src="js/loaddatack.js"></script>
+<script src="js/orderform.js"></script>
+<script src="js/forgetpass.js"></script>
+<script src="js/forder.js"></script>
+
+<script src="js/verify.js"></script>
+
+
+</body>
+</html>
